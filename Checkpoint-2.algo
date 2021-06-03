@@ -1,0 +1,43 @@
+ALGORITHM checkpoint-2-solution-1
+VAR
+    arr1, arr2 : INTEGER[10];
+    i,j : INTEGER;
+    sum1,sum2: INTEGER := 0;
+    existe : BOOLEAN;
+
+BEGIN
+    // Read two tables
+    FOR i FROM 1 TO 20 DO
+        Read(arr1[i]);
+        Read(arr2[i]);
+    END_FOR
+
+    FOR i FROM 0 TO arr1.length-1 STEP 1  DO
+        existe :=  FALSE;
+        FOR j FROM 0 TO arr2.length-1 STEP 1  DO
+            IF (arr1[i] = arr2[j]) THEN
+                existe:= TRUE;
+                 BREAK;
+            END_IF
+        END_FOR
+        IF (NOT existe) THEN
+            sum := sum + set1[i];
+        END_IF
+    END_FOR
+
+    FOR i FROM 0 TO arr2.length-1 DO
+        existe := FALSE;
+        FOR j FROM 0 TO arr2.length-1 DO
+            IF(arr2[i] = arr1[j]) THEN
+                existe := TRUE;
+                BREAK;
+            END
+        END_FOR
+        IF (NOT existe) THEN
+            sum := sum + arr2[i];
+        END_IF
+    END_FOR
+
+    Write('la somme final' + sum);
+
+END
